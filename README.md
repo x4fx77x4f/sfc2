@@ -1,5 +1,6 @@
 # sfc2
 sfc2 ("StarFall Commands 2") is provides chat commands for various useful utilities. Compatible with [luadev](https://github.com/Metastruct/luadev) chat commands.
+![Screenshot](https://user-images.githubusercontent.com/70858634/160216771-20429142-af10-4b5c-9c7b-5d6d35841fbd.png)
 
 ## Usage
 1. `cd ~/.steam/steam/steamapps/common/GarrysMod/garrysmod/data/starfall`
