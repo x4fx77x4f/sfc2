@@ -15,11 +15,12 @@ sfc2.color_server_light = Color(152, 212, 255)
 sfc2.color_menu = Color(76, 175, 80)
 sfc2.color_execute = Color(191, 191, 191)
 sfc2.color_feedback = sfc2.color_execute
+local prefix = string.format("[%d] ", chip():entIndex())
 local function print_target(target, ...)
 	if target == owner() then
-		print(...)
+		print(sfc2.color_menu, prefix, sfc2.color_feedback, ...)
 	else
-		pcall(printHud, target, ...)
+		pcall(printHud, target, sfc2.color_menu, prefix, sfc2.color_feedback, ...)
 	end
 end
 local function print_all(...)
