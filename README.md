@@ -1,5 +1,5 @@
 # sfc2
-sfc2 ("StarFall Commands 2") is provides chat commands for various useful utilities. Compatible with [luadev](https://github.com/Metastruct/luadev) chat commands.
+sfc2 ("StarFall Commands 2") is a [StarfallEx](https://github.com/thegrb93/StarfallEx) chip that provides various useful utilities via chat commands. Compatible with [luadev](https://github.com/Metastruct/luadev) chat commands.
 
 ![Screenshot](https://user-images.githubusercontent.com/70858634/160216771-20429142-af10-4b5c-9c7b-5d6d35841fbd.png)
 
