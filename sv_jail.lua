@@ -162,9 +162,6 @@ hook.add('PlayerDisconnect', sfc2.HOOK_NAME..'_cellupdate', function(steamid, na
 end)
 
 sfc2.commands.jail = function(executor, parameters)
-	if not parameters or parameters == '' then
-		return sfc2.commands.unjail(executor, parameters)
-	end
 	if executor ~= owner() then
 		print_target(executor, sfc2.color_feedback, "sfc2: not allowed")
 		return

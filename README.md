@@ -25,6 +25,8 @@ sfc2 ("StarFall Commands 2") is provides chat commands for various useful utilit
 - `blacklist <target>`: Ignore all future net messages from the target for the duration of the session. Chip owner only.
 - `unblacklist <target>`: Stop ignoring net messages from the target. Chip owner only.
 - `suicide <target>`: Self-destruct on specified target. Chip owner only. I don't know why I added this. I can't think of any good reason you would ever want to do this.
+- `jail <target>`: Jail the target. Chip owner only.
+- `unjail <target>`: Unjail the target. Chip owner only.
 
 ## License
 This software is licensed under the MIT License. Its license terms can be read in [`LICENSE`](LICENSE).
