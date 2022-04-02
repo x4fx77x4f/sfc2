@@ -4,13 +4,13 @@ sfc2 ("StarFall Commands 2") is a [StarfallEx](https://github.com/thegrb93/Starf
 ![Screenshot](https://user-images.githubusercontent.com/70858634/160216771-20429142-af10-4b5c-9c7b-5d6d35841fbd.png)
 
 ## Usage
-1. `cd ~/.steam/steam/steamapps/common/GarrysMod/garrysmod/data/starfall`
-2. `git clone https://github.com/x4fx77x4f/sfc2.git`
-3. Flash `sfc2/init.lua` to a Starfall Processor
-4. Optionally additionally place, wire, and use a HUD component
-5. Chat commands are prefixed with `$`
+1. `git clone https://github.com/x4fx77x4f/sfc2.git ~/.steam/steam/steamapps/common/GarrysMod/garrysmod/data/starfall/sfc2`
+2. Flash `sfc2/init.lua` to a Starfall Processor
+3. Optionally additionally place, wire, and use a HUD component
 
 ## Commands
+Chat commands are prefixed with `$`. Other people (probably) won't see your chat commands without being connected to a HUD.
+
 - `l <Lua code>`: Execute Lua code on the server. Chip owner only.
 - `ls <Lua code>`: Execute Lua code on the server and all clients. Chip owner only.
 - `lc <Lua code>`: Execute Lua code on all clients. Chip owner only.
