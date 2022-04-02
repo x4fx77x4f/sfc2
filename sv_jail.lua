@@ -116,10 +116,12 @@ function sfc2.cell_reposition(cell, pos)
 	local src, dst = cell.prefab.props, cell.props
 	for k=1, #dst do
 		local v = dst[k]
-		local v2 = src[k]
-		v:setPos(v2.pos+pos)
-		v:setAngles(v2.ang)
-		v:setFrozen(true)
+		if isValid(v) then
+			local v2 = src[k]
+			v:setPos(v2.pos+pos)
+			v:setAngles(v2.ang)
+			v:setFrozen(true)
+		end
 	end
 	cell.min = cell.prefab.min+pos
 	cell.max = cell.prefab.max+pos
