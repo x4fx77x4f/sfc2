@@ -23,12 +23,16 @@ local function print_target(target, ...)
 		pcall(printHud, target, sfc2.color_menu, prefix, sfc2.color_feedback, ...)
 	end
 end
+sfc2.print_target = print_target
 local function print_all(...)
 	for _, player in pairs(find.allPlayers()) do
 		print_target(player, ...)
 	end
 end
+sfc2.print_all = print_all
+
 local everyone = {}
+sfc2.print_execution_everyone = everyone
 local function print_execution(executor, server, targets, code)
 	local message = {
 		team.getColor(executor:getTeam()),
@@ -66,6 +70,7 @@ local function print_execution(executor, server, targets, code)
 	message[i+2] = ": "..code
 	print_all(unpack(message))
 end
+sfc2.print_execution = print_execution
 sfc2.execution_response_due = {}
 local function execute(code, server, targets, executor, print_result)
 	if server then
@@ -316,28 +321,8 @@ sfc2.commands.unspectate = function(executor, parameters)
 	sfc2.spectating[executor] = nil
 end
 
---[[
-sfc2.modules_response_due = {}
-function sfc2.commands.setmodule(executor, parameters)
-	local first_space = string.find(str, ' ')
-	if not first_space then
-		print_target(executor, "sfc2: malformed command")
-		return
-	end
-	local target = sfc2.get_target(string.sub(str, 1, first_space-1), true)
-	if not target then
-		print_target(speaker, "sfc2: no such target")
-		return
-	end
-	if target ~= executor and executor ~= owner() then
-		print_target(speaker, "sfc2: not allowed")
-		return
-	end
-	net.start(sfc2.NET_NAME)
-		
-	net.send(executor)
-end
---]]
+--@include ./sv_jail.lua
+dofile('./sv_jail.lua')
 
 hook.add('PlayerSay', sfc2.HOOK_NAME, function(speaker, text, team_chat)
 	if string.sub(text, 1, 1) ~= '$' then
