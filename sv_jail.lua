@@ -1,3 +1,4 @@
+local sfc2 = sfc2
 local print_target = sfc2.print_target
 local print_all = sfc2.print_all
 

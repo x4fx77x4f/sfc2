@@ -324,6 +324,9 @@ end
 --@include ./sv_jail.lua
 dofile('./sv_jail.lua')
 
+--@include ./sv_propkill.lua
+dofile('./sv_propkill.lua')
+
 hook.add('PlayerSay', sfc2.HOOK_NAME, function(speaker, text, team_chat)
 	if string.sub(text, 1, 1) ~= '$' then
 		return

@@ -27,6 +27,7 @@ Chat commands are prefixed with `$`. Other people (probably) won't see your chat
 - `suicide <target>`: Self-destruct on specified target. Chip owner only. I don't know why I added this. I can't think of any good reason you would ever want to do this.
 - `jail <target>`: Jail the target. Chip owner only.
 - `unjail <target>`: Unjail the target. Chip owner only.
+- `propkill <target>`: Propkill the target. Chip owner only.
 
 ## License
 This software is licensed under the MIT License. Its license terms can be read in [`LICENSE`](LICENSE).

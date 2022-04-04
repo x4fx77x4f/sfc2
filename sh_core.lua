@@ -1,6 +1,7 @@
 sfc2 = sfc2 or {}
 
 sfc2.HOOK_NAME = '_sfc2'
+sfc2.TIMER_NAME = '_sfc2'
 sfc2.RT_NAME = '_sfc2'
 sfc2.NET_NAME = '_sfc2'
 sfc2.CB_WIDTH = 8
