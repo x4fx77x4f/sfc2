@@ -28,6 +28,8 @@ Chat commands are prefixed with `$`. Other people (probably) won't see your chat
 - `jail <target>`: Jail the target. Chip owner only.
 - `unjail <target>`: Unjail the target. Chip owner only.
 - `propkill <target>`: Propkill the target. Chip owner only.
+- `spawnkill <target>`: Mark the target for spawnkilling, and propkill them. Chip owner only.
+- `unspawnkill <target>`: Unmark the target for spawnkilling. Chip owner only.
 
 ## License
 This software is licensed under the MIT License. Its license terms can be read in [`LICENSE`](LICENSE).

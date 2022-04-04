@@ -68,3 +68,46 @@ sfc2.commands.propkill = function(executor, parameters)
 	table.insert(queue, target)
 	print_all(team.getColor(executor:getTeam()), executor:getName(), sfc2.color_feedback, " propkilled ", team.getColor(target:getTeam()), target:getName(), sfc2.color_feedback, ".")
 end
+
+local damned = {}
+sfc2.propkill_damned = damned
+sfc2.commands.spawnkill = function(executor, parameters)
+	if executor ~= owner() then
+		print_target(executor, sfc2.color_feedback, "sfc2: not allowed")
+		return
+	end
+	local target = sfc2.get_target(parameters, true)
+	if type(target) ~= 'Player' then
+		print_target(executor, sfc2.color_feedback, "sfc2: no such target")
+		return
+	end
+	if damned[target:getSteamID()] then
+		print_target(executor, sfc2.color_feedback, "sfc2: target already being spawnkilled")
+		return
+	end
+	table.insert(queue, target)
+	damned[target:getSteamID()] = true
+	print_all(team.getColor(executor:getTeam()), executor:getName(), sfc2.color_feedback, " damned ", team.getColor(target:getTeam()), target:getName(), sfc2.color_feedback, " to endless spawnkilling.")
+end
+sfc2.commands.unspawnkill = function(executor, parameters)
+	if executor ~= owner() then
+		print_target(executor, sfc2.color_feedback, "sfc2: not allowed")
+		return
+	end
+	local target = sfc2.get_target(parameters, true)
+	if type(target) ~= 'Player' then
+		print_target(executor, sfc2.color_feedback, "sfc2: no such target")
+		return
+	end
+	if not damned[target:getSteamID()] then
+		print_target(executor, sfc2.color_feedback, "sfc2: target not being spawnkilled")
+		return
+	end
+	damned[target:getSteamID()] = nil
+	print_all(team.getColor(executor:getTeam()), executor:getName(), sfc2.color_feedback, " saved ", team.getColor(target:getTeam()), target:getName(), sfc2.color_feedback, " from endless spawnkilling.")
+end
+hook.add('PlayerSpawn', sfc2.HOOK_NAME..'_propkill_damned', function(target)
+	if damned[target:getSteamID()] and queue[#queue] ~= target then
+		table.insert(queue, target)
+	end
+end)
