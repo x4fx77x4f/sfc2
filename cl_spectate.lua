@@ -61,18 +61,18 @@ end
 function sfc2.spectate(target)
 	if target == nil then
 		hook.remove('calcview', sfc2.HOOK_NAME)
-		hook.remove('drawhud', sfc2.HOOK_NAME)
+		hook.remove('postdrawhud', sfc2.HOOK_NAME)
 		hook.remove('hudshoulddraw', sfc2.HOOK_NAME)
 		local spectatee = sfc2.spectatee
-		if not pcall(spectatee.setNoDraw, spectatee, false) then
-			print("WARNING: Script error on Player:setNoDraw call")
-		end
-		for _, wpn in pairs(spectatee:getWeapons()) do
-			pcall(wpn.setNoDraw, wpn, false)
+		if isValid(spectatee) then
+			pcall(spectatee.setNoDraw, spectatee, false)
+			for _, wpn in pairs(spectatee:getWeapons()) do
+				pcall(wpn.setNoDraw, wpn, false)
+			end
 		end
 	else
 		hook.add('calcview', sfc2.HOOK_NAME, sfc2.spectate_calcview)
-		hook.add('drawhud', sfc2.HOOK_NAME, sfc2.spectate_drawhud)
+		hook.add('postdrawhud', sfc2.HOOK_NAME, sfc2.spectate_drawhud)
 		hook.add('hudshoulddraw', sfc2.HOOK_NAME, sfc2.spectate_hudshoulddraw)
 	end
 	sfc2.spectatee = target
